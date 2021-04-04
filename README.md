@@ -1,1 +1,1 @@
-# creep.store | Flask edition
+# creep | Flask edition

@@ -1,3 +1,86 @@
 @import 'normalize';
 @import 'colors';
 @import 'fonts';
+
+body {
+    overflow: hidden;
+    font-size: 100%;
+    font-family: 'Noto Sans', sans-serif;
+
+    #container {
+        @include rect(100%, 100%);
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 0;
+        overflow: hidden;
+
+        #background-video {
+            position: fixed;
+            @include rect(100vw, 56.25vw);
+            @include minRect(177.77vh, 100vh);
+            @include center;
+            z-index: -1;
+        }
+
+        #container-wrapper {
+            margin: auto;
+            @include rect(960px / 1920px * 100%, 100vh);
+            display: flex;
+
+            @media (max-width: 768px) {
+                width: 100%;
+            }
+
+            #container-content {
+                @include rect(90%, auto);
+                max-width: 960px;
+                margin: auto;
+                vertical-align: middle;
+
+                .logo {
+                    margin: 0 auto;
+                    @include rect(200px, auto);
+
+                    img {
+                        margin: auto;
+                        @include rect(200px, auto);
+                        @include maxRect(100%, auto);
+                        vertical-align: top;
+                    }
+                }
+
+                .nav {
+                    text-align: center;
+                    padding: 10px;
+                    font-size: 22px;
+
+                    z-index: 999;
+
+                    ul {
+                        overflow: hidden;
+                        list-style-type: none;
+                        margin: 0;
+                        padding: 0;
+
+                        li {
+                            display: inline-block;
+                            margin: 0 10px;
+
+                            a {
+                                text-decoration: none;
+                                color: white;
+                                cursor: pointer;
+
+                                &:hover {
+                                    color: $primary;
+                                    transition: linear 150ms;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
